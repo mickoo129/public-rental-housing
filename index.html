@@ -7,9 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&family=Noto+Sans+HK:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%2300a758%22/%3E%3Cpath%20d%3D%22M7%2015.5%20L16%208%20L25%2015.5%20M10%2013.5%20V24%20H22%20V13.5%20M14%2024%20V19%20H18%20V24%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222.5%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%2300a758%22/%3E%3Cpath%20d%3D%22M7%2015.5%20L16%208%20L25%2015.5%20M10%2013.5%20V24%20H22%20V13.5%20M14%2024%20V19%20H18%20V24%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%222.5%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E">
-<meta name="theme-color" content="#00A758">
+<meta name="theme-color" content="#0E5E57">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <meta name="description" content="由申請公屋、輪候、上樓，到住戶定期申報及富戶政策的完整流程、申報要求與計算期（2026/27 年度資料）。">
 <style>
 :root{
@@ -31,7 +33,7 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 h1,h2,h3,h4{font-family:var(--mk-sans);letter-spacing:-.015em;line-height:1.25;margin:0;font-weight:600}
 b,strong{font-weight:600;color:var(--ink)}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.wrap{max-width:calc(1320px + 2 * var(--mk-gutter));margin:0 auto;padding:0 var(--mk-gutter)}
 .num{font-variant-numeric:tabular-nums}
 
 /* top bar */
@@ -112,7 +114,7 @@ h3.block{font-size:21px;margin:44px 0 14px}
 .checks li:first-child:before{top:13px}
 .checks.x li:before{width:12px;height:2px;border:0;background:var(--muted);transform:none;top:24px}
 .checks.x li:first-child:before{top:16px}
-.checks span{display:block;color:var(--muted);font-size:15px;line-height:1.55;margin-top:2px}
+.checks li>span{display:block;color:var(--muted);font-size:15px;line-height:1.55;margin-top:2px}
 .dots{margin:6px 0 0;padding-left:18px;color:var(--ink2)}
 .dots li{margin:5px 0}
 .dots li::marker{color:var(--muted)}
@@ -500,7 +502,13 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
   --mk-warn:#8A5B00; --mk-warn-soft:#FFF5DC; --mk-danger:#C62828; --mk-danger-soft:#FDECEC;
   --mk-sans:"Noto Sans HK","PingFang HK","Microsoft JhengHei",system-ui,sans-serif;
   --mk-num:"Barlow","Noto Sans HK",system-ui,sans-serif;
+  --mk-max:1320px;                        /* 內容最闊 */
+  --mk-gutter:clamp(16px,3vw,32px);       /* 兩邊留白：手機 16px → 桌面 32px */
 }
+/* 版面外框：工具可以用自己嘅 class，但數值要一樣 */
+.mk-wrap{width:100%;max-width:calc(var(--mk-max) + 2 * var(--mk-gutter));margin:0 auto;padding-left:var(--mk-gutter);padding-right:var(--mk-gutter);box-sizing:border-box}
+/* 標題旁 icon */
+.mk-logo{width:32px;height:32px;flex:none;display:block}
 .mk-ecard{display:flex;align-items:center;gap:16px 24px;flex-wrap:wrap;margin:28px 0 0;padding:20px 22px;border-radius:14px;border:1px solid var(--mk-brand-line);background:var(--mk-brand-soft);font-family:var(--mk-sans);color:var(--mk-ink);text-align:left}
 .mk-ecard-txt{flex:1;min-width:200px}
 .mk-ecard-txt b{display:block;font-size:17px;font-weight:700;margin-bottom:2px;color:var(--mk-ink)}
@@ -531,7 +539,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 
 <header class="bar">
   <div class="wrap">
-    <div class="brand"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#00a758"/><path d="M7 15.5 L16 8 L25 15.5 M10 13.5 V24 H22 V13.5 M14 24 V19 H18 V24" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span>公屋全程指南</span></div>
+    <div class="brand"><img class="mk-logo logo" src="favicon.svg" alt="" width="24" height="24"><span>公屋全程指南</span></div>
     <nav class="nav" id="nav">
       <a href="#journey">總覽</a>
       <a href="#eligibility">申請資格</a>
