@@ -521,14 +521,14 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
   --mk-max:1320px;                        /* 內容最闊 */
   --mk-gutter:clamp(16px,3vw,32px);       /* 兩邊留白：手機 16px → 桌面 32px */
   /* 分類色盤：主色（圓點、色條、圖表）／ -ink 白底寫字 ／ -soft 淺底 */
-  --mk-cat-1:#2A78D6; --mk-cat-1-ink:#2873CE; --mk-cat-1-soft:#E7EFF9;   /* 醫療／住院 */
-  --mk-cat-2:#6250D6; --mk-cat-2-ink:#6250D6; --mk-cat-2-soft:#E9E7F9;   /* 危疾 */
-  --mk-cat-3:#EB6834; --mk-cat-3-ink:#C94714; --mk-cat-3-soft:#F9ECE7;   /* 人壽／身故 */
-  --mk-cat-4:#0E9AA7; --mk-cat-4-ink:#0C808B; --mk-cat-4-soft:#E7F7F9;   /* 意外 */
-  --mk-cat-5:#C2417A; --mk-cat-5-ink:#C2417A; --mk-cat-5-soft:#F8E8EF;   /* 癌症 */
-  --mk-cat-6:#C99A2E; --mk-cat-6-ink:#8F6D21; --mk-cat-6-soft:#F9F3E7;   /* 儲蓄／退休／強積金 */
-  --mk-cat-7:#5B7086; --mk-cat-7-ink:#5B7086; --mk-cat-7-soft:#EDF0F3;   /* 中性／其他 */
-  --mk-cat-8:#8A5A44; --mk-cat-8-ink:#8A5A44; --mk-cat-8-soft:#F5EEEB;   /* 第8色 */
+  --mk-cat-1:#1E6FE6; --mk-cat-1-ink:#1D6CDF; --mk-cat-1-soft:#E4EEFC;   /* 1 醫療／住院 */
+  --mk-cat-2:#EA6A23; --mk-cat-2-ink:#B7531B; --mk-cat-2-soft:#FCEDE5;   /* 2 人壽／身故 */
+  --mk-cat-3:#9B2FC0; --mk-cat-3-ink:#9B2FC0; --mk-cat-3-soft:#F3E6F7;   /* 3 危疾 */
+  --mk-cat-4:#079BA0; --mk-cat-4-ink:#067D81; --mk-cat-4-soft:#E1F3F4;   /* 4 意外 */
+  --mk-cat-5:#D39A12; --mk-cat-5-ink:#926B0C; --mk-cat-5-soft:#FAF3E3;   /* 5 儲蓄／退休／強積金 */
+  --mk-cat-6:#DB3A64; --mk-cat-6-ink:#CE375E; --mk-cat-6-soft:#FBE7EC;   /* 6 癌症 */
+  --mk-cat-7:#6E7378; --mk-cat-7-ink:#6B7074; --mk-cat-7-soft:#EEEEEF;   /* 7 中性／其他 */
+  --mk-cat-8:#8A5A44; --mk-cat-8-ink:#8A5A44; --mk-cat-8-soft:#F1EBE9;   /* 8 後備 */
 }
 /* 分類 class：加喺元素上就用 var(--c) var(--c-ink) var(--c-soft) */
 .mk-cat-1{--c:var(--mk-cat-1);--c-ink:var(--mk-cat-1-ink);--c-soft:var(--mk-cat-1-soft)}
@@ -585,6 +585,17 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 /* 手機：按鈕字縮短（「分享」「列印」） */
 @media (max-width:480px){.mk-long{display:none}.mk-print-btn,.mk-share-btn{padding:0 10px}}
 /* ===== MKPA 統一標準 完 ===== */
+/* ===== 階段底色：申請及輪候 1、上樓 2、租住期 3；成段底色跟階段轉（全幅淺底＋頂部色條） ===== */
+section.ph{--c:var(--mk-cat-1);--c-soft:var(--mk-cat-1-soft);--c-ink:var(--mk-cat-1-ink);margin-top:56px;padding:48px 0 56px;background:var(--c-soft);
+  box-shadow:0 0 0 100vmax var(--c-soft);clip-path:inset(0 -100vmax);border-top:6px solid transparent;border-image:linear-gradient(var(--c) 0 0) 1 / 6px 0 0 0 / 0 100vmax}
+section.ph2{--c:var(--mk-cat-2);--c-soft:var(--mk-cat-2-soft);--c-ink:var(--mk-cat-2-ink)}
+section.ph3{--c:var(--mk-cat-3);--c-soft:var(--mk-cat-3-soft);--c-ink:var(--mk-cat-3-ink)}
+section.ph + section.ph{margin-top:0}
+section.ph .sec-no{background:var(--c);color:#fff}
+section.ph .sec-head h2{color:var(--c-ink)}
+section.ph + section:not(.ph){padding-top:72px}
+@media print{section.ph{background:none;box-shadow:none;clip-path:none;border-image:none;border-top:0;padding:0;margin:0}section.ph .sec-no{background:var(--accent-soft);color:var(--accent)}section.ph .sec-head h2{color:inherit}}
+
 
 </style>
 </head>
@@ -660,7 +671,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 </section>
 
 <!-- ELIGIBILITY -->
-<section id="eligibility">
+<section id="eligibility" class="ph ph1">
   <div class="sec-head"><div class="sec-no">01 資格</div><div><h2>申請資格</h2><p>遞表時要符合；到詳細資格審查及配屋時，須<span class="key">再次符合當時的限額</span>。</p></div></div>
 
   <div class="grid2">
@@ -701,7 +712,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 </section>
 
 <!-- TYPES -->
-<section id="types">
+<section id="types" class="ph ph1">
   <div class="sec-head"><div class="sec-no">02 類別</div><div><h2>申請類別</h2><p>家庭及長者按登記日期排隊；非長者一人申請按分數排隊。</p></div></div>
 
   <div class="grid3">
@@ -729,7 +740,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 </section>
 
 <!-- PROCESS -->
-<section id="process">
+<section id="process" class="ph ph1">
   <div class="sec-head"><div class="sec-no">03 流程</div><div><h2>由遞表到入伙</h2><p>每個階段都會核實資料，如實申報最重要。</p></div></div>
 
   <div class="card">
@@ -753,7 +764,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 </section>
 
 <!-- DECLARE -->
-<section id="declare">
+<section id="declare" class="ph ph1">
   <div class="sec-head"><div class="sec-no">04 申報</div><div><h2>要申報甚麼，以哪段時間計</h2><p>申請公屋與住戶「富戶申報」的計算方法不同。以下按房委會申請須知（HD274）及 2026 年 4 月富戶申報表（HD1119C）整理。</p></div></div>
 
   <div class="tbl-wrap">
@@ -855,7 +866,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 </section>
 
 <!-- LIVING -->
-<section id="living">
+<section id="living" class="ph ph2">
   <div class="sec-head"><div class="sec-no">05 上樓</div><div><h2>上樓之後的基本責任</h2><p>租金、戶籍與屋邨管理，是入住初期最常見的問題。</p></div></div>
   <div class="grid3">
     <div class="card top tc-green"><h3>租金</h3>
@@ -874,7 +885,7 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 </section>
 
 <!-- REVIEW -->
-<section id="review">
+<section id="review" class="ph ph3">
   <div class="sec-head"><div class="sec-no">06 審查</div><div><h2>入住後的申報時間表</h2><p>申報表每年 4 月及 10 月分批發出，按入住年期決定要報甚麼。</p></div></div>
 
   <div class="rt">
