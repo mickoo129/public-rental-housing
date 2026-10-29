@@ -585,15 +585,26 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 /* 手機：按鈕字縮短（「分享」「列印」） */
 @media (max-width:480px){.mk-long{display:none}.mk-print-btn,.mk-share-btn{padding:0 10px}}
 /* ===== MKPA 統一標準 完 ===== */
-/* ===== 階段底色：申請及輪候 1、上樓 2、租住期 3；成段底色跟階段轉（全幅淺底＋頂部色條） ===== */
-section.ph{--c:var(--mk-cat-1);--c-soft:var(--mk-cat-1-soft);--c-ink:var(--mk-cat-1-ink);margin-top:56px;padding:48px 0 56px;background:var(--c-soft);
+/* ===== 章節底色：每個章節（導覽每一項）按 1→8 次序用自己嘅分類色；成段淺底＋頂部色條，導覽色點同選中掣跟住同一隻色 ===== */
+.c0{--c:var(--mk-brand);--c-ink:var(--mk-brand-ink);--c-soft:var(--mk-brand-soft)}
+.c1{--c:var(--mk-cat-1);--c-ink:var(--mk-cat-1-ink);--c-soft:var(--mk-cat-1-soft)}
+.c2{--c:var(--mk-cat-2);--c-ink:var(--mk-cat-2-ink);--c-soft:var(--mk-cat-2-soft)}
+.c3{--c:var(--mk-cat-3);--c-ink:var(--mk-cat-3-ink);--c-soft:var(--mk-cat-3-soft)}
+.c4{--c:var(--mk-cat-4);--c-ink:var(--mk-cat-4-ink);--c-soft:var(--mk-cat-4-soft)}
+.c5{--c:var(--mk-cat-5);--c-ink:var(--mk-cat-5-ink);--c-soft:var(--mk-cat-5-soft)}
+.c6{--c:var(--mk-cat-6);--c-ink:var(--mk-cat-6-ink);--c-soft:var(--mk-cat-6-soft)}
+.c7{--c:var(--mk-cat-7);--c-ink:var(--mk-cat-7-ink);--c-soft:var(--mk-cat-7-soft)}
+.c8{--c:var(--mk-cat-8);--c-ink:var(--mk-cat-8-ink);--c-soft:var(--mk-cat-8-soft)}
+section.ph{margin-top:0;padding:48px 0 56px;background:var(--c-soft);
   box-shadow:0 0 0 100vmax var(--c-soft);clip-path:inset(0 -100vmax);border-top:6px solid transparent;border-image:linear-gradient(var(--c) 0 0) 1 / 6px 0 0 0 / 0 100vmax}
-section.ph2{--c:var(--mk-cat-2);--c-soft:var(--mk-cat-2-soft);--c-ink:var(--mk-cat-2-ink)}
-section.ph3{--c:var(--mk-cat-3);--c-soft:var(--mk-cat-3-soft);--c-ink:var(--mk-cat-3-ink)}
-section.ph + section.ph{margin-top:0}
 section.ph .sec-no{background:var(--c);color:#fff}
 section.ph .sec-head h2{color:var(--c-ink)}
+section:not(.ph) + section.ph{margin-top:56px}
 section.ph + section:not(.ph){padding-top:72px}
+.nav a[class^="c"]{display:inline-flex;align-items:center;gap:6px}
+.nav a[class^="c"]::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.nav a[class^="c"].on{background:var(--c);color:#fff;font-weight:700}
+.nav a[class^="c"].on::before{background:#fff}
 @media print{section.ph{background:none;box-shadow:none;clip-path:none;border-image:none;border-top:0;padding:0;margin:0}section.ph .sec-no{background:var(--accent-soft);color:var(--accent)}section.ph .sec-head h2{color:inherit}}
 
 
@@ -606,15 +617,15 @@ section.ph + section:not(.ph){padding-top:72px}
   <div class="wrap">
     <div class="brand"><img class="mk-logo logo" src="favicon.svg" alt="" width="24" height="24"><span class="mk-name">公屋全程指南<small class="mk-sub">由申請、輪候到上樓及申報</small></span></div>
     <nav class="nav" id="nav">
-      <a href="#journey">總覽</a>
-      <a href="#eligibility">申請資格</a>
-      <a href="#types">申請類別</a>
-      <a href="#process">申請流程</a>
-      <a href="#declare">申報要求</a>
-      <a href="#living">上樓之後</a>
-      <a href="#review">定期審查</a>
-      <a href="#tools">快速計算</a>
-      <a href="#faq">常見問題</a>
+      <a href="#journey" class="c0">總覽</a>
+      <a href="#eligibility" class="c1">申請資格</a>
+      <a href="#types" class="c2">申請類別</a>
+      <a href="#process" class="c3">申請流程</a>
+      <a href="#declare" class="c4">申報要求</a>
+      <a href="#living" class="c5">上樓之後</a>
+      <a href="#review" class="c6">定期審查</a>
+      <a href="#tools" class="c7">快速計算</a>
+      <a href="#faq" class="c8">常見問題</a>
     </nav>
     <div class="tools">
       <button type="button" class="mk-print-btn" onclick="window.print()">列印<span class="mk-long"> / 存 PDF</span></button>
@@ -671,7 +682,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- ELIGIBILITY -->
-<section id="eligibility" class="ph ph1">
+<section id="eligibility" class="ph c1">
   <div class="sec-head"><div class="sec-no">01 資格</div><div><h2>申請資格</h2><p>遞表時要符合；到詳細資格審查及配屋時，須<span class="key">再次符合當時的限額</span>。</p></div></div>
 
   <div class="grid2">
@@ -712,7 +723,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- TYPES -->
-<section id="types" class="ph ph1">
+<section id="types" class="ph c2">
   <div class="sec-head"><div class="sec-no">02 類別</div><div><h2>申請類別</h2><p>家庭及長者按登記日期排隊；非長者一人申請按分數排隊。</p></div></div>
 
   <div class="grid3">
@@ -740,7 +751,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- PROCESS -->
-<section id="process" class="ph ph1">
+<section id="process" class="ph c3">
   <div class="sec-head"><div class="sec-no">03 流程</div><div><h2>由遞表到入伙</h2><p>每個階段都會核實資料，如實申報最重要。</p></div></div>
 
   <div class="card">
@@ -764,7 +775,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- DECLARE -->
-<section id="declare" class="ph ph1">
+<section id="declare" class="ph c4">
   <div class="sec-head"><div class="sec-no">04 申報</div><div><h2>要申報甚麼，以哪段時間計</h2><p>申請公屋與住戶「富戶申報」的計算方法不同。以下按房委會申請須知（HD274）及 2026 年 4 月富戶申報表（HD1119C）整理。</p></div></div>
 
   <div class="tbl-wrap">
@@ -866,7 +877,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- LIVING -->
-<section id="living" class="ph ph2">
+<section id="living" class="ph c5">
   <div class="sec-head"><div class="sec-no">05 上樓</div><div><h2>上樓之後的基本責任</h2><p>租金、戶籍與屋邨管理，是入住初期最常見的問題。</p></div></div>
   <div class="grid3">
     <div class="card top tc-green"><h3>租金</h3>
@@ -885,7 +896,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- REVIEW -->
-<section id="review" class="ph ph3">
+<section id="review" class="ph c6">
   <div class="sec-head"><div class="sec-no">06 審查</div><div><h2>入住後的申報時間表</h2><p>申報表每年 4 月及 10 月分批發出，按入住年期決定要報甚麼。</p></div></div>
 
   <div class="rt">
@@ -953,7 +964,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- TOOLS -->
-<section id="tools">
+<section id="tools" class="ph c7">
   <div class="sec-head"><div class="sec-no">07 計算</div><div><h2>快速初步評估</h2><p>只供參考，最終以房委會審核為準。</p></div></div>
   <div class="card">
     <div class="seg" role="tablist">
@@ -1009,7 +1020,7 @@ section.ph + section:not(.ph){padding-top:72px}
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section id="faq" class="ph c8">
   <div class="sec-head"><div class="sec-no">09 問答</div><div><h2>常見問題</h2></div></div>
   <div class="faq">
   <details><summary><span class="ftag">申報</span>申請公屋時，入息是計近半年還是近一年？</summary><div class="ans"><p>視乎收入類別。固定薪金計簽署前最後一個完整曆月；不固定的底薪、津貼、超時工作及佣金計過去 6 個曆月平均；年終花紅、雙糧，以及沒有固定僱主的收入，計過去 12 個月平均。資產以簽署前一日的結餘計算。</p></div></details>
@@ -1212,6 +1223,13 @@ window.addEventListener("beforeprint", () => document.querySelectorAll("details"
 (function(){var d=new Date();
 document.querySelectorAll('.mk-year').forEach(function(e){e.textContent=d.getFullYear();});
 document.querySelectorAll('.mk-print-date').forEach(function(e){e.textContent=d.getFullYear()+' 年 '+(d.getMonth()+1)+' 月 '+d.getDate()+' 日';});})();
+</script>
+<script>
+/* 手機：導覽選中嗰項自動捲入畫面 */
+(function(){var nav=document.getElementById("nav"),last=null;if(!nav)return;
+new MutationObserver(function(){var a=nav.querySelector("a.on");if(!a||a===last)return;last=a;
+var l=a.offsetLeft-nav.offsetLeft,r=l+a.offsetWidth;if(l<nav.scrollLeft||r>nav.scrollLeft+nav.clientWidth)nav.scrollTo({left:l-16,behavior:"smooth"});})
+.observe(nav,{subtree:true,attributes:true,attributeFilter:["class"]});})();
 </script>
 </body>
 </html>
