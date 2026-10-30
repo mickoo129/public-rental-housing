@@ -556,9 +556,13 @@ mark{background:linear-gradient(transparent 52%,#ffe17a 52%);color:inherit;paddi
 .mk-print-btn{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--mk-brand);background:var(--mk-surface);color:var(--mk-brand-ink);font:inherit;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
 .mk-print-btn:hover{background:var(--mk-brand-soft)}
 .mk-print-head{display:none}
+/* MKPA 工具箱連結（頁尾，電子名片同版權行之間；開新分頁；列印唔印） */
+.mk-home-link{margin:16px 0 0;font-family:var(--mk-sans);font-size:14px;line-height:1.5}
+.mk-home-link a{color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.mk-home-link a:hover{text-decoration-thickness:2px}
 @media print{
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .mk-no-print,.mk-print-btn,.mk-share-btn,.mk-toast,.mk-ecard-btn{display:none!important}
+  .mk-no-print,.mk-print-btn,.mk-share-btn,.mk-toast,.mk-ecard-btn,.mk-home-link{display:none!important}
   .mk-header{position:static}
   .mk-ecard{break-inside:avoid;padding:10px 14px;margin-top:14px}
   .mk-ecard-qr{display:block}
@@ -1073,6 +1077,7 @@ section.ph + section:not(.ph){padding-top:72px}
       <a href="https://www.districtcouncils.gov.hk/tw/doc/2024_2027/tc/dc_meetings_doc/32059/TWDC_Paper_No_22_2526.pdf" target="_blank" rel="noopener">房屋署：「富戶政策」調整重點及申報安排</a>
       <a href="https://www.stheadline.com/society/3596654/" target="_blank" rel="noopener">2026 年公屋租金檢討：10 月 1 日起加租 2.04%</a>
     </div>
+    <p class="mk-home-link"><a href="https://mkpa.netlify.app/" target="_blank" rel="noopener">MKPA 工具箱：睇其他實用工具 ↗</a></p>
     <p class="mk-copy">© <span class="mk-year">2026</span> Michael Koo Protection Alliance (MKPA). 版權所有。</p>
   </div>
 </footer>
