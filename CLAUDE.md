@@ -34,3 +34,4 @@ MKPA 工具之一。呢個 repo 只放呢一個工具，獨立部署去 Netlify�
 
 - 單一靜態檔案 `index.html`，唔使 build。
 - 政策數字（入息資產限額、輪候時間等）要跟房委會最新公布，改數字時要註明資料來源同日期。
+- 快速計算下面有一條連結去「長者公屋＋長生津計算機」（`https://elderly-housing-calc.netlify.app/`，repo `mickoo129/elderly-housing-calc`）。**每年 4 月改公屋限額時，計算機嗰邊都要一齊改**，否則兩邊數字對唔上。
