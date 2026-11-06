@@ -622,6 +622,53 @@ section.ph + section:not(.ph){padding-top:72px}
 @media print{section.ph,section.ph:nth-of-type(odd){background:none;box-shadow:none;clip-path:none;padding:0;margin:0}section.ph .sec-no{background:var(--accent-soft);color:var(--accent)}}
 
 
+/* ===== 2026-11 微調：長篇指南第三級用色——分類色只留喺章節編號、導覽；卡片、流程圖、情況卡用宏利綠；嚴重程度用警示琥珀／紅 ===== */
+.stats .stat:nth-child(n){--c:var(--mk-brand)}
+.card.top{--tc:var(--mk-brand)!important}
+.tag[class*="c-"]{background:var(--mk-brand-soft);color:var(--mk-brand-ink)}
+.pcard{--sc:var(--mk-brand-ink)!important;--sc-soft:var(--mk-brand-soft)!important}
+.pcard:before{display:none}
+.pcard:hover{background:var(--mk-bg)}
+.jstep.pa{--jc:var(--mk-brand-ink)!important} .jstep.pb{--jc:var(--mk-brand)!important} .jstep.pc{--jc:var(--mk-deep)!important}
+.phases div:first-child{border-color:var(--mk-brand-line)!important;color:var(--mk-brand-ink)!important}
+.phases div:nth-child(2){border-color:var(--mk-brand)!important;color:var(--mk-brand-ink)!important}
+.phases div:last-child{border-color:var(--mk-deep)!important;color:var(--mk-deep)!important}
+.rt-row .when{border-left:0!important}
+.contact>div{--cc:var(--mk-brand)!important}
+.hd-a{background:var(--mk-brand-ink)!important} .hd-b{background:var(--mk-deep)!important}
+.ftag,.ftag.f2,.ftag.f3{background:var(--mk-brand-soft)!important;color:var(--mk-brand-ink)!important}
+.tip{border-left:0!important;padding-left:0!important}
+.rung .lv{border-left:0!important}
+.l1{background:var(--mk-brand-soft)!important;color:var(--mk-brand-ink)!important}
+.l2{background:var(--mk-warn-soft)!important;color:var(--mk-warn)!important}
+.l3{background:#FBE8C4!important;color:var(--mk-warn)!important}
+.l4{background:var(--mk-danger-soft)!important;color:var(--mk-danger)!important}
+.l5{background:var(--mk-danger)!important;color:#fff!important}
+.contact .v a{color:inherit;text-decoration:none}
+/* 手機：闊表格按家庭人數顯示 */
+.cnt-pick{display:none}
+@media (max-width:680px){
+  .cnt-pick{display:flex;align-items:center;gap:10px;margin:0 0 10px;font-size:15px;font-weight:600;color:var(--ink)}
+  .cnt-pick select{height:42px;border:1px solid var(--mk-line);border-radius:10px;padding:0 12px;font:inherit;font-size:16px;font-weight:500;background:#fff;color:var(--ink)}
+  .cnt-pick select:focus{outline:none;border-color:var(--mk-brand)}
+  table.bycount thead{display:none}
+  table.bycount,table.bycount tbody{display:block;width:auto}
+  table.bycount tr{display:none;padding:12px 16px;border-bottom:1px solid var(--line)}
+  table.bycount tr:last-child{border-bottom:0}
+  table.bycount.all tr,table.bycount tr.sel{display:block}
+  table.bycount td{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border:0!important;padding:4px 0!important;text-align:right;white-space:normal;background:none!important}
+  table.bycount td:first-child{font-weight:700;font-size:16px;color:var(--ink);padding-bottom:6px!important}
+  table.bycount td:not(:first-child)::before{content:attr(data-label);color:var(--muted);font-size:13.5px;font-weight:500;text-align:left;margin-right:auto}
+  table.bycount td:not(:first-child){justify-content:flex-end!important;gap:6px!important}
+  /* 按你的情況閱讀：手機兩欄細卡 */
+  .persona{grid-template-columns:1fr 1fr!important;gap:8px;border:0!important;background:none!important;overflow:visible!important}
+  .persona>.pcard.pcard:nth-child(n){border:1px solid var(--line)!important;border-radius:12px;padding:12px 14px;background:var(--card)}
+  .persona .pcard p{display:none}
+  .persona .pcard h3{font-size:15.5px;margin-top:6px}
+  .persona .pcard .go{display:block;margin-top:6px;font-size:13px}
+}
+@media print{.cnt-pick{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -660,13 +707,13 @@ section.ph + section:not(.ph){padding-top:72px}
     <div class="stat"><div class="k">公屋綜合輪候時間</div><div class="v">4.8<small>年</small></div><div class="n">一般申請者・截至 2026 年 6 月</div></div>
     <div class="stat"><div class="k">長者一人申請者</div><div class="v">3.9<small>年</small></div><div class="n">傳統公屋平均輪候時間</div></div>
     <div class="stat"><div class="k">1 人家庭入息上限</div><div class="v">$13,230</div><div class="n">每月・資產上限 $295,000</div></div>
-    <div class="stat"><div class="k">住戶申報周期</div><div class="v">2<small>年一次</small></div><div class="n">住滿 10 年起加報入息及資產</div></div>
+    <div class="stat"><div class="k">富戶資產遷出界線</div><div class="v">$2,590,000</div><div class="n">3 人家庭・即入息限額 × 100</div></div>
   </div>
 </div>
 
 <!-- PERSONA -->
 <section class="no-print">
-  <div class="sec-head"><div class="sec-no">START</div><div><h2>按你的情況閱讀</h2><p>選擇最接近的情況，直接跳到相關部分。</p></div></div>
+  <div class="sec-head"><div class="sec-no">導讀</div><div><h2>按你的情況閱讀</h2><p>選擇最接近的情況，直接跳到相關部分。</p></div></div>
   <div class="persona">
     <a class="pcard sa" href="#eligibility"><div class="stage">申請前</div><h3>準備申請</h3><p>是否合資格、入息及資產上限是多少。</p><span class="go">申請資格 →</span></a>
     <a class="pcard sa" href="#types"><div class="stage">申請前</div><h3>單身人士</h3><p>非長者一人申請按「配額及計分制」排隊。</p><span class="go">計分方法 →</span></a>
@@ -728,7 +775,7 @@ section.ph + section:not(.ph){padding-top:72px}
 
   <h3 class="block">2026/27 年度入息及資產限額</h3>
   <div class="tbl-wrap">
-    <table>
+    <table class="bycount">
       <thead><tr><th>家庭人數</th><th>每月入息上限<small>括號：未扣 5% 強積金的相應入息</small></th><th>資產淨值上限<small>一般家庭</small></th><th>資產淨值上限<small>全長者家庭</small></th></tr></thead>
       <tbody id="limitTable"></tbody>
     </table>
@@ -968,7 +1015,7 @@ section.ph + section:not(.ph){padding-top:72px}
 
   <h3 class="block">2026/27 年度富戶政策限額（每月家庭入息）</h3>
   <div class="tbl-wrap">
-    <table>
+    <table class="bycount">
       <thead><tr><th>人數</th><th>2.5 倍租金</th><th>3.5 倍租金</th><th>4.5 倍租金</th><th>須遷出<small>入息超逾</small></th><th>須遷出<small>資產淨值超逾</small></th></tr></thead>
       <tbody id="wellOffTable"></tbody>
     </table>
@@ -985,6 +1032,7 @@ section.ph + section:not(.ph){padding-top:72px}
     <div class="seg" role="tablist">
       <button class="on" data-pane="p1">申請資格</button>
       <button data-pane="p2">現有租戶富戶評估</button>
+      <button data-pane="p3">單身人士計分</button>
     </div>
 
     <div class="pane on" id="p1">
@@ -1013,6 +1061,17 @@ section.ph + section:not(.ph){padding-top:72px}
       </div>
       <button class="btn" id="b_go">評估</button>
       <div class="result" id="b_res"></div>
+    </div>
+
+    <div class="pane" id="p3">
+      <div class="form">
+        <div class="field"><label for="s_age">遞交申請時年齡</label><input id="s_age" type="number" inputmode="numeric" min="18" max="59" placeholder="例如 30"><div class="hint">只適用於 18 至 59 歲非長者一人申請</div></div>
+        <div class="field"><label for="s_m">已輪候月數</label><input id="s_m" type="number" inputmode="numeric" min="0" placeholder="例如 36"><div class="hint">由登記日起計；未申請填 0</div></div>
+        <div class="field"><label>其他情況</label><label class="chk"><input type="checkbox" id="s_prh"> 現時與家人同住公屋</label></div>
+      </div>
+      <button class="btn" id="s_go">計分</button>
+      <p class="tnote">計分方法：遞交申請時 18 歲為 0 分，每大 1 歲加 9 分；輪候每滿 1 個月加 1 分；年屆 45 歲一次過加 60 分；現居公屋扣 30 分。2024/25 年度獲安排詳細資格審查的分數為 <b>444 分</b>，<mark>分數線每年都會變動</mark>，只供參考。</p>
+      <div class="result" id="s_res"></div>
     </div>
   </div>
   <div class="note mk-no-print" style="margin-top:16px"><p><span class="nt">家中有 65 歲或以上長者？</span>公屋同長生津嘅入息資產計法唔同。用「長者公屋＋長生津計算機」一次過睇兩邊資格同差幾多。 <a href="https://elderly-housing-calc.netlify.app/" target="_blank" rel="noopener"><b>開啟計算機 ↗</b></a></p></div>
@@ -1061,8 +1120,8 @@ section.ph + section:not(.ph){padding-top:72px}
 <section id="contact">
   <div class="sec-head"><div class="sec-no">10 查詢</div><div><h2>官方查詢渠道</h2></div></div>
   <div class="contact">
-    <div><div class="k">房委會熱線</div><div class="v">2712 2712</div></div>
-    <div><div class="k">長者諮詢熱線</div><div class="v">2794 5134</div></div>
+    <div><div class="k">房委會熱線</div><div class="v"><a href="tel:27122712">2712 2712</a></div></div>
+    <div><div class="k">長者諮詢熱線</div><div class="v"><a href="tel:27945134">2794 5134</a></div></div>
     <div><div class="k">房委會網站</div><div class="v" style="font-size:17px;margin-top:9px"><a href="https://www.housingauthority.gov.hk" target="_blank" rel="noopener">housingauthority.gov.hk</a></div></div>
   </div>
 </section>
@@ -1130,6 +1189,55 @@ document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click"
   document.querySelectorAll(".pane").forEach(x => x.classList.remove("on"));
   b.classList.add("on"); $("#" + b.dataset.pane).classList.add("on");
 }));
+
+/* 手機：闊表格加「家庭人數」選單，只顯示所選一行 */
+document.querySelectorAll("table.bycount").forEach(t => {
+  const heads = [...t.querySelectorAll("thead th")].map(th => {
+    const main = th.childNodes[0].textContent.trim(), sm = th.querySelector("small");
+    return sm && sm.textContent.trim().length <= 8 ? main + "（" + sm.textContent.trim() + "）" : main;
+  });
+  [...t.tBodies[0].rows].forEach(tr => [...tr.cells].forEach((td, i) => td.dataset.label = heads[i] || ""));
+  const pick = document.createElement("label"); pick.className = "cnt-pick";
+  pick.innerHTML = '家庭人數 <select>' + LIMITS.map(r => `<option value="${r[0]}">${label(r[0])}</option>`).join("") + '<option value="all">全部顯示</option></select>';
+  t.closest(".tbl-wrap").before(pick);
+  const sel = pick.querySelector("select"); sel.value = "3";
+  const apply = () => { t.classList.toggle("all", sel.value === "all"); [...t.tBodies[0].rows].forEach((r, i) => r.classList.toggle("sel", String(i + 1) === sel.value)); };
+  sel.addEventListener("change", apply); apply();
+});
+
+/* 單身人士計分（配額及計分制） */
+const QPS_CUT = 444;   /* 2024/25 年度獲安排詳細資格審查的分數 */
+const dur = n => { const y = Math.floor(n / 12), r = n % 12; return (y ? y + " 年" : "") + (y && r ? " " : "") + (r ? r + " 個月" : "") || "不足 1 個月"; };
+$("#s_go").addEventListener("click", () => {
+  const age = num("#s_age"), m = num("#s_m"), prh = $("#s_prh").checked, res = $("#s_res");
+  if (age === null || m === null) return show(res, "r-warn", "請輸入年齡及輪候月數", ["兩項都需要填寫才能計分。"]);
+  const a0 = Math.floor(age), months = Math.floor(m);
+  if (a0 < 18 || a0 > 59) return show(res, "r-warn", "年齡要介乎 18 至 59 歲", ["58 歲或以上可申請高齡單身人士優先配屋計劃；年滿 60 歲會轉作長者申請處理。"]);
+  const base = (a0 - 18) * 9, pen = prh ? -30 : 0;
+  const scoreAt = mm => base + mm + ((a0 + mm / 12) >= 45 ? 60 : 0) + pen;
+  const nowAge = a0 + months / 12;
+  if (nowAge >= 60) return show(res, "r-ok", "已轉作長者申請處理", ["按你輸入的資料，你已年滿 60 歲，會轉用長者申請隊伍，不再按分數排隊。"]);
+  const sc = scoreAt(months);
+  const parts = [`年齡分 ${base}`, `輪候分 ${months}`];
+  if (nowAge >= 45) parts.push("45 歲加分 60");
+  if (prh) parts.push("現居公屋 −30");
+  const lines = [`計分：${parts.join(" ＋ ").replace("＋ 現居公屋 −30", "− 30（現居公屋）")} ＝ <b>${sc} 分</b>`];
+  if (sc >= QPS_CUT) {
+    lines.push(`已達 2024/25 年度分數線 ${QPS_CUT} 分。分數線每年變動，最終以房屋署通知為準。`);
+    return show(res, "r-ok", `${sc} 分：已達最近分數線`, lines);
+  }
+  let need = null;
+  for (let mm = months; a0 + mm / 12 < 60; mm++) { if (scoreAt(mm) >= QPS_CUT) { need = mm - months; break; } }
+  lines.push(`距離 2024/25 年度分數線 ${QPS_CUT} 分，尚差 <b>${QPS_CUT - sc} 分</b>。`);
+  if (nowAge < 45) { const to45 = Math.max(0, Math.ceil((45 - nowAge) * 12)); lines.push(`約 ${dur(to45)}後年屆 45 歲，會一次過加 60 分。`); }
+  if (need !== null) {
+    lines.push(`如分數線不變，再輪候約 <b>${dur(need)}</b>便達到（年齡按整數粗略推算）。`);
+  } else {
+    lines.push("如分數線不變，年滿 60 歲前未能達到；屆時會轉作長者申請處理。");
+  }
+  lines.push("<span class='sub'>結婚或與家人組成家庭申請，會轉用一般家庭隊伍，按登記日期排隊。</span>");
+  show(res, "r-warn", `${sc} 分：未達最近分數線`, lines);
+});
 
 function show(el, cls, title, lines){
   el.className = "result show " + cls;
